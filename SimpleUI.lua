@@ -498,7 +498,7 @@ local function CreateColorSystem(Object)
 	
 	UI_GUI_ColorSystem["FrameDragOne"].Parent = UI_GUI_ColorSystem["FrameColor"]
 	UI_GUI_ColorSystem["FrameDragOne"].Size = UDim2.new(1, 0, 1, 0)
-	UI_GUI_ColorSystem["FrameDragOne"].AnchorPoint = Vector2.new(0.5, 0)
+	--UI_GUI_ColorSystem["FrameDragOne"].AnchorPoint = Vector2.new(0.5, 0)
 	UI_GUI_ColorSystem["FrameDragOne"].SizeConstraint = Enum.SizeConstraint.RelativeYY
 	UI_GUI_ColorSystem["FrameDragOne"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	
@@ -506,7 +506,7 @@ local function CreateColorSystem(Object)
 	UI_GUI_ColorSystem["UIDragOne"].BoundingUI = UI_GUI_ColorSystem["FrameColor"]
 	UI_GUI_ColorSystem["UIDragOne"].DragStyle = Enum.UIDragDetectorDragStyle.TranslateLine
 	UI_GUI_ColorSystem["UIDragOne"].ResponseStyle = Enum.UIDragDetectorResponseStyle.Scale
-	UI_GUI_ColorSystem["UIDragOne"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.HitPoint
+	UI_GUI_ColorSystem["UIDragOne"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.EntireObject
 	
 	UI_GUI_ColorSystem["FrameColorBlack"].Parent = UI_GUI_ColorSystem["FrameBoxColor"]
 	UI_GUI_ColorSystem["FrameColorBlack"].Size = UDim2.new(1, 0, 0, 20)
@@ -523,14 +523,14 @@ local function CreateColorSystem(Object)
 	UI_GUI_ColorSystem["FrameDragTwo"].Size = UDim2.new(1, 0, 1, 0)
 	UI_GUI_ColorSystem["FrameDragTwo"].SizeConstraint = Enum.SizeConstraint.RelativeYY
 	UI_GUI_ColorSystem["FrameDragTwo"].Position = UDim2.new(1, 0, 0, 0)
-	UI_GUI_ColorSystem["FrameDragTwo"].AnchorPoint = Vector2.new(0.5, 0)
+	--UI_GUI_ColorSystem["FrameDragTwo"].AnchorPoint = Vector2.new(0.5, 0)
 	UI_GUI_ColorSystem["FrameDragTwo"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 
 	UI_GUI_ColorSystem["UIDragTwo"].Parent = UI_GUI_ColorSystem["FrameDragTwo"]
 	UI_GUI_ColorSystem["UIDragTwo"].BoundingUI = UI_GUI_ColorSystem["FrameColorBlack"]
 	UI_GUI_ColorSystem["UIDragTwo"].DragStyle = Enum.UIDragDetectorDragStyle.TranslateLine
 	UI_GUI_ColorSystem["UIDragTwo"].ResponseStyle = Enum.UIDragDetectorResponseStyle.Scale
-	UI_GUI_ColorSystem["UIDragTwo"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.HitPoint
+	UI_GUI_ColorSystem["UIDragTwo"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.EntireObject
 	
 	UI_GUI_ColorSystem["FrameColorWhite"].Parent = UI_GUI_ColorSystem["FrameBoxColor"]
 	UI_GUI_ColorSystem["FrameColorWhite"].Size = UDim2.new(1, 0, 0, 20)
@@ -546,7 +546,7 @@ local function CreateColorSystem(Object)
 	UI_GUI_ColorSystem["FrameDragThree"].Parent = UI_GUI_ColorSystem["FrameColorWhite"]
 	UI_GUI_ColorSystem["FrameDragThree"].Size = UDim2.new(1, 0, 1, 0)
 	UI_GUI_ColorSystem["FrameDragThree"].Position = UDim2.new(1, 0, 0, 0)
-	UI_GUI_ColorSystem["FrameDragThree"].AnchorPoint = Vector2.new(0.5, 0)
+	--UI_GUI_ColorSystem["FrameDragThree"].AnchorPoint = Vector2.new(0.5, 0)
 	UI_GUI_ColorSystem["FrameDragThree"].SizeConstraint = Enum.SizeConstraint.RelativeYY
 	UI_GUI_ColorSystem["FrameDragThree"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 
@@ -554,7 +554,7 @@ local function CreateColorSystem(Object)
 	UI_GUI_ColorSystem["UIDragThree"].BoundingUI = UI_GUI_ColorSystem["FrameColorWhite"]
 	UI_GUI_ColorSystem["UIDragThree"].DragStyle = Enum.UIDragDetectorDragStyle.TranslateLine
 	UI_GUI_ColorSystem["UIDragThree"].ResponseStyle = Enum.UIDragDetectorResponseStyle.Scale
-	UI_GUI_ColorSystem["UIDragThree"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.HitPoint
+	UI_GUI_ColorSystem["UIDragThree"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.EntireObject
 	
 	UI_GUI_ColorSystem["FrameColorInputBox"].Parent = UI_GUI_ColorSystem["FrameBoxColor"]
 	UI_GUI_ColorSystem["FrameColorInputBox"].Size = UDim2.new(1, 0, 0, 20)
@@ -645,6 +645,9 @@ local function CreateColorSystem(Object)
 	end
 	
 	local function UpdateDrag()
+  UI_GUI_ColorSystem["FrameDragOne"].AnchorPoint = Vector2.new(UI_GUI_ColorSystem["FrameDragOne"].Position.X.Scale, 0)
+  UI_GUI_ColorSystem["FrameDragTwo"].AnchorPoint = Vector2.new(UI_GUI_ColorSystem["FrameDragTwo"].Position.X.Scale, 0)
+  UI_GUI_ColorSystem["FrameDragThree"].AnchorPoint = Vector2.new(UI_GUI_ColorSystem["FrameDragThree"].Position.X.Scale, 0)
 		UI_GUI_ColorSystem["FrameBoxColorRGB"].BackgroundColor3 = Color3.fromHSV(UI_GUI_ColorSystem["FrameDragOne"].Position.X.Scale, UI_GUI_ColorSystem["FrameDragThree"].Position.X.Scale, UI_GUI_ColorSystem["FrameDragTwo"].Position.X.Scale)
 		UI_GUI_ColorSystem["UIGradientColorWhite"].Color = ColorSequence.new(
 			Color3.fromRGB(255, 255, 255),
@@ -1457,84 +1460,91 @@ local UI_System = { -- Be sure to add!!!
 
 local UI_MenuBox = {
 	MenuMainBox = CreateMenuBox(
-		UI["GUI"][3]
+		UI["GUI"][3] -- Object for ScrollBox
 	),
 	MenuMiscBox = CreateMenuBox(
-		UI["GUI"][3]
+		UI["GUI"][3] -- Object for ScrollBox
 	),
 	MenuCombatBox = CreateMenuBox(
-		UI["GUI"][3]
+		UI["GUI"][3] -- Object for ScrollBox
 	),
 	MenuFarmBox = CreateMenuBox(
-		UI["GUI"][3]
+		UI["GUI"][3] -- Object for ScrollBox
 	),
 	MenuPlayerBox = CreateMenuBox(
-		UI["GUI"][3]
+		UI["GUI"][3] -- Object for ScrollBox
 	),
 	MenuSettingsBox = CreateMenuBox(
-		UI["GUI"][3]
+		UI["GUI"][3] -- Object for ScrollBox
 	),
 }
 
 
 local UI_Box = {
 	MenuMainBoxName = CreateBox(
-		UI_MenuBox["MenuMainBox"],
-		"Test"
+		UI_MenuBox["MenuMainBox"], -- Object for MenuBox
+		"Test" -- Text name box
 	),
 	MenuMiscBoxName = CreateBox(
-		UI_MenuBox["MenuMiscBox"],
-		"Script"
+		UI_MenuBox["MenuMiscBox"], -- Object for MenuBox
+		"Script" -- Text name box
 	),
 	MenuSettingsBoxName = CreateBox(
-		UI_MenuBox["MenuSettingsBox"],
-		"Info"
+		UI_MenuBox["MenuSettingsBox"], -- Object for MenuBox
+		"Info" -- Text name box
 	),
 }
 
 
-local UI_Obj = {
+local UI_Obj = { 
+
+ -- all elements 
 	Switch = CreateSwitch(
-		UI_Box["MenuMainBoxName"], -- Object
-		"Switch" -- Text
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"Switch" -- Text name
 	),
 	Button = CreateButton(
-		UI_Box["MenuMainBoxName"], -- Object
-		"Button",
-		"Open",
-		Color3.fromRGB(0, 255, 0)
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"Button", -- Text name
+		"Open", -- Text Button
+		Color3.fromRGB(0, 255, 0) -- Color Button
 	),
 	TextBox = CreateTextBox(
-		UI_Box["MenuMainBoxName"], -- Object
-		"TextBox",
-		"1-255",
-		"1",
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"TextBox", -- Text name
+		"1-255", -- Placeholdertex
+		"1", -- Text
 		"str", -- str, int, float
-		{},
-		true
+		{}, -- Range (only int and float: {1, 255} or {} is no range)
+		true -- Don't leave an empty field
 		
 	),
 	Color = CreateColor(
-		UI_Box["MenuMainBoxName"], -- Object
-		"Color",
-		Color3.fromRGB(255, 255, 255),
-		UI_System["Color"]
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"Color", -- Text name
+		Color3.fromRGB(255, 255, 255), -- Main color
+		UI_System["Color"] -- System (Be sure to add this value!)
 	),
 	Tab = CreateTab(
-		UI_Box["MenuMainBoxName"], -- Object
-		"Tab", -- Text
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"Tab", -- Text name
 		"Item3", -- Main table
 		"Item", -- Item, Player
 		{"Item123456789", "BOOOOOOOOOOOOOOOOOM!!!", "Item3"}, -- Table
 		UI_System["Tab"], -- System (Be sure to add this value!)
-		Color3.fromRGB(229, 179, 0)
+		Color3.fromRGB(229, 179, 0) -- Color tab
 	),
 	key = CreateKey(
-		UI_Box["MenuMainBoxName"],
-		"Key",
-		Enum.KeyCode.E.Name
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"Key", -- Text name
+		Enum.KeyCode.E.Name -- Enum keycode
 	),
-	
+ Info = CreateInfo(
+		UI_Box["MenuMainBoxName"], -- Object for box
+		"Info text" -- Text name
+	),
+	-- end elements
+
 	--Misc
 	
 	OpenInfiniteYield = CreateButton(
@@ -1559,11 +1569,11 @@ local UI_Obj = {
 	),
 	
 	TransTextBox = CreateTextBox(
-		UI_Box["MenuSettingsBoxName"], -- Object
+		UI_Box["MenuSettingsBoxName"],
 		"TransWindow",
 		"0-0.9",
 		"0",
-		"float", -- str, int, float
+		"float",
 		{0, 0.9},
 		false
 	),
@@ -1585,46 +1595,46 @@ local UI_Obj = {
 
 local UI_Menu = {
 	MenuMain = CreateMenu(
-		UI["GUI"][2],
-		"rbxassetid://116558416127511",
-		"Main",
-		true,
-		UI_MenuBox["MenuMainBox"]
+		UI["GUI"][2], -- Object for ScrollMenuButton
+		"rbxassetid://116558416127511", -- Image
+		"Main", -- Text name main
+		true, -- Main select button
+		UI_MenuBox["MenuMainBox"] -- Object for MenuBox
 	),
 	MenuMisc = CreateMenu(
-		UI["GUI"][2],
-		"rbxassetid://122390149904203",
-		"Misc",
-		false,
-		UI_MenuBox["MenuMiscBox"]
+		UI["GUI"][2], -- Object for ScrollMenuButton
+		"rbxassetid://122390149904203", -- Image
+		"Misc", -- Text name main
+		false, -- Main select button
+		UI_MenuBox["MenuMiscBox"] -- Object for MenuBox
 	),
 	MenuCombat = CreateMenu(
-		UI["GUI"][2],
-		"rbxassetid://115519534027040",
-		"Combat",
-		false,
-		UI_MenuBox["MenuCombatBox"]
+		UI["GUI"][2], -- Object for ScrollMenuButton
+		"rbxassetid://115519534027040", -- Image
+		"Combat", -- Text name main
+		false, -- Main select button
+		UI_MenuBox["MenuCombatBox"] -- Object for MenuBox
 	),
 	MenuFarm = CreateMenu(
-		UI["GUI"][2],
-		"rbxassetid://117235363388702",
-		"Farm",
-		false,
-		UI_MenuBox["MenuFarmBox"]
+		UI["GUI"][2], -- Object for ScrollMenuButton
+		"rbxassetid://117235363388702", -- Image
+		"Farm", -- Text name main
+		false, -- Main select button
+		UI_MenuBox["MenuFarmBox"] -- Object for MenuBox
 	),
 	MenuPlayer = CreateMenu(
-		UI["GUI"][2],
-		"rbxassetid://82195709729963",
-		"Player",
-		false,
-		UI_MenuBox["MenuPlayerBox"]
+		UI["GUI"][2], -- Object for ScrollMenuButton
+		"rbxassetid://82195709729963", -- Image 
+		"Player", -- Text name main
+		false, -- Main select button
+		UI_MenuBox["MenuPlayerBox"] -- Object for MenuBox
 	),
 	MenuSettings = CreateMenu(
-		UI["GUI"][2],
-		"rbxassetid://96575338692675",
-		"Settings",
-		false,
-		UI_MenuBox["MenuSettingsBox"]
+		UI["GUI"][2], -- Object for ScrollMenuButton
+		"rbxassetid://96575338692675", -- Image
+		"Settings", -- Text name main
+		false, -- Main select button
+		UI_MenuBox["MenuSettingsBox"] -- Object for MenuBox
 	),
 }
 
