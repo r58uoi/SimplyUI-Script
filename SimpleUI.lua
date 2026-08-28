@@ -500,7 +500,7 @@ local function CreateColorSystem(Object)
 	)
 	
 	UI_GUI_ColorSystem["FrameColorClone"].Parent = UI_GUI_ColorSystem["FrameColor"]
-	UI_GUI_ColorSystem["FrameColorClone"].Size = UDim2.new(1, -40, 1, 0)
+	UI_GUI_ColorSystem["FrameColorClone"].Size = UDim2.new(1, -10, 1, 0)
 	UI_GUI_ColorSystem["FrameColorClone"].AnchorPoint = Vector2.new(0.5, 0)
 	UI_GUI_ColorSystem["FrameColorClone"].BackgroundTransparency = 1
 	
@@ -528,7 +528,7 @@ local function CreateColorSystem(Object)
 	)
 	
 	UI_GUI_ColorSystem["FrameColorBlackClone"].Parent = UI_GUI_ColorSystem["FrameColorBlack"]
-	UI_GUI_ColorSystem["FrameColorBlackClone"].Size = UDim2.new(1, -40, 1, 0)
+	UI_GUI_ColorSystem["FrameColorBlackClone"].Size = UDim2.new(1, -10, 1, 0)
 	UI_GUI_ColorSystem["FrameColorBlackClone"].AnchorPoint = Vector2.new(0.5, 0)
 	UI_GUI_ColorSystem["FrameColorBlackClone"].BackgroundTransparency = 1
 
@@ -557,7 +557,7 @@ local function CreateColorSystem(Object)
 	)
 	
 	UI_GUI_ColorSystem["FrameColorWhiteClone"].Parent = UI_GUI_ColorSystem["FrameColorWhite"]
-	UI_GUI_ColorSystem["FrameColorWhiteClone"].Size = UDim2.new(1, -40, 1, 0)
+	UI_GUI_ColorSystem["FrameColorWhiteClone"].Size = UDim2.new(1, -10, 1, 0)
 	UI_GUI_ColorSystem["FrameColorWhiteClone"].AnchorPoint = Vector2.new(0.5, 0)
 	UI_GUI_ColorSystem["FrameColorWhiteClone"].BackgroundTransparency = 1
 	
