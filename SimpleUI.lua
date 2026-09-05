@@ -105,7 +105,7 @@ UI_Table["UIShadow"].Transparency = 0.5
 --	end
 --end
 
-function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui, BarButton)
+function SipmlyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui, BarButton)
 	local UI_GUI_Bulider = {
 		--GUI
 
