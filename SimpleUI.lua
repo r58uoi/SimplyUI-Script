@@ -822,7 +822,7 @@ function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 		}
 	end
 	
-	function LabelSimply:Menu(Image, Text, MainBool, ScrollObject)
+	function LabelSimply:Menu(Image, Text, MainBool)
 		
 		local UI_GUI_MenuBox = {
 			ScrollingFrameBox = UI_Table["ScrollingFrame"]:Clone(),
@@ -1431,9 +1431,9 @@ function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 
 		end
 
-		if ScrollObject ~= nil then
+		if UI_GUI_MenuBox["ScrollingFrameBox"] ~= nil then
 			UI_GUI_Menu["TextButton"].Activated:Connect(function()
-				ScrollObject.Visible = true
+				UI_GUI_MenuBox["ScrollingFrameBox"].Visible = true
 				UI_GUI_Menu["TextButton"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				UI_GUI_Menu["ImageLabel"].ImageColor3 = Color3.fromRGB(255, 255, 255)
 				UI_GUI_Menu["TextLabel"].TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1450,7 +1450,7 @@ function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				end
 				for i, v in pairs(UI_GUI_MenuBox["ScrollingFrameBox"]:GetChildren()) do
 					if v:IsA("ScrollingFrame") then
-						if v ~= ScrollObject then
+						if v ~= UI_GUI_MenuBox["ScrollingFrameBox"] then
 							if v.Visible ~= false then
 								v.Visible = false
 							end
@@ -1459,9 +1459,9 @@ function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				end
 			end)
 			if MainBool == true then
-				ScrollObject.Visible = true
+				UI_GUI_MenuBox["ScrollingFrameBox"].Visible = true
 			else
-				ScrollObject.Visible = false
+				UI_GUI_MenuBox["ScrollingFrameBox"].Visible = false
 			end
 		end
 	end
