@@ -1389,6 +1389,7 @@ function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				UI_GUI_Info["UIPadding"].PaddingLeft = UDim.new(0, 10)
 				UI_GUI_Info["UIPadding"].PaddingRight = UDim.new(0, 10)
 			end
+			return LabelSimplyThree
 		end
 		
 		local UI_GUI_Menu = {
@@ -1464,15 +1465,10 @@ function SipmleUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				UI_GUI_MenuBox["ScrollingFrameBox"].Visible = false
 			end
 		end
+		return LabelSimplyTwo
 	end
 
-	return {
-		UI_GUI_Bulider["MainGui"], 
-		UI_GUI_Bulider["ScrollingFrameMenu"],
-		UI_GUI_Bulider["FrameBoxScroll"],
-		UI_GUI_Bulider["ColorFrame"],
-		UI_GUI_Bulider["MainFrame"],
-	}
+	return LabelSimply
 end
 
 return SimplyUI
