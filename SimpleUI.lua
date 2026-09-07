@@ -1242,7 +1242,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 								conn = Clone.Activated:Connect(function()
 									UI_GUI_Tab["TextButton"].Text = Clone.TextLabel.Text
 									UI_GUI_Tab["StringValue"].Value = v
-									UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
+									UI_GUI_Tab["CallBack"](UI_GUI_Tab["StringValue"].Value)
 									Systems["Tab"][1].Visible = false
 									conn:Disconnect()
 								end)
@@ -1282,7 +1282,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 										conn = Clone.Activated:Connect(function()
 											UI_GUI_Tab["TextButton"].Text = Clone.TextLabel.Text
 											UI_GUI_Tab["StringValue"].Value = v.Name
-											UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
+											UI_GUI_Tab["CallBack"](UI_GUI_Tab["StringValue"].Value)
 											Systems["Tab"][1].Visible = false
 											conn:Disconnect()
 										end)
