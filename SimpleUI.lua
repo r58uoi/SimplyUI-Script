@@ -19,7 +19,8 @@ local UI_Table = {
 	UIGradient = Instance.new("UIGradient"),
 	BoolValue = Instance.new("BoolValue"),
 	StringValue = Instance.new("StringValue"),
-	ColorValue = Instance.new("Color3Value")
+	ColorValue = Instance.new("Color3Value"),
+	Bool = true
 }
 
 UI_Table["ScreenGui"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -93,7 +94,7 @@ UI_Table["UIShadow"].Transparency = 0.5
 --				end
 --				part.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 --			end
-			
+
 --		elseif part:IsA("TextLabel") then
 --			part.TextColor3 = Color3.fromRGB(255, 255, 255)
 --		else
@@ -105,339 +106,7 @@ UI_Table["UIShadow"].Transparency = 0.5
 --	end
 --end
 
-function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui, BarButton)
-	local UI_GUI_Bulider = {
-		--GUI
-
-		MainGui = UI_Table["ScreenGui"]:Clone(),
-		ButtonSimply = UI_Table["ImageButton"]:Clone(),
-		MainFrame = UI_Table["CanvasGroup"]:Clone(),
-		UIShadow = UI_Table["UIShadow"]:Clone(),
-		UISizeConstraint = UI_Table["UISizeConstraint"]:Clone(),
-
-		FrameBar = UI_Table["Frame"]:Clone(),
-
-		UIListLayoutOne = UI_Table["UIListLayout"]:Clone(),
-		FrameBarOne = UI_Table["Frame"]:Clone(),
-
-		UIListLayoutOneOne = UI_Table["UIListLayout"]:Clone(),
-		ImageLabelGame = UI_Table["ImageLabel"]:Clone(),
-		TextLabelGame = UI_Table["TextLabel"]:Clone(),
-
-		FrameBarTwo = UI_Table["Frame"]:Clone(),
-
-		UIListLayoutOneTwo = UI_Table["UIListLayout"]:Clone(),
-		ImageButtonClose = UI_Table["ImageButton"]:Clone(),
-		ImageButtonMaxMinSize = UI_Table["ImageButton"]:Clone(),
-		ImageButtonMiniSize = UI_Table["ImageButton"]:Clone(),
-
-		FrameBox = UI_Table["Frame"]:Clone(),
-
-		FrameBoxScroll = UI_Table["Frame"]:Clone(),
-
-		FrameMenuScroll = UI_Table["Frame"]:Clone(),
-		ScrollingFrameMenu = UI_Table["ScrollingFrame"]:Clone(),
-
-		UIListLayoutTwo = UI_Table["UIListLayout"]:Clone(),
-
-		SizeFrame = UI_Table["Frame"]:Clone(),
-
-
-		TabFrame = UI_Table["Frame"]:Clone(),
-		ScrollingFrameTab = UI_Table["ScrollingFrame"]:Clone(),
-		UIListLayoutTab = UI_Table["UIListLayout"]:Clone(),
-		ButtonTab = UI_Table["TextButton"]:Clone(),
-
-		ColorFrame = UI_Table["Frame"]:Clone(),
-		--ButtonColorRGB = UI_Table["TextButton"]:Clone(),
-		--ButtonColorSelect = UI_Table["TextButton"]:Clone(),
-
-		UIListLayoutColor = UI_Table["UIListLayout"]:Clone(),
-
-		FrameBoxColor = UI_Table["Frame"]:Clone(),
-		FrameBoxColorRGB = UI_Table["Frame"]:Clone(),
-
-		FrameColorInputBox = UI_Table["Frame"]:Clone(),
-		UIListLayoutInputColor = UI_Table["UIListLayout"]:Clone(),
-		InputRed = UI_Table["TextBox"]:Clone(),
-		InputGreen = UI_Table["TextBox"]:Clone(),
-		InputBlue = UI_Table["TextBox"]:Clone(),
-
-		InputHEX = UI_Table["TextBox"]:Clone(),
-
-		FrameColorButtonBox = UI_Table["Frame"]:Clone(),
-		ButtonColorOK = UI_Table["TextButton"]:Clone(),
-		ButtonColorCancel = UI_Table["TextButton"]:Clone(),
-
-
-	}
-
-	UI_GUI_Bulider["MainGui"].Parent = GameGuiPath --game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
-	UI_GUI_Bulider["MainGui"].Name = "SimplyUI"
-
-	UI_GUI_Bulider["ButtonSimply"].Parent = UI_GUI_Bulider["MainGui"]
-	UI_GUI_Bulider["ButtonSimply"].BorderSizePixel = 1
-	UI_GUI_Bulider["ButtonSimply"].Size = UDim2.new(0, 50, 0, 50)
-	UI_GUI_Bulider["ButtonSimply"].Position = UDim2.new(0, 100, 0, 100)
-	UI_GUI_Bulider["ButtonSimply"].Image = "rbxassetid://77754544522243"
-	UI_GUI_Bulider["ButtonSimply"].ImageColor3 = Color3.fromRGB(0, 0, 0)
-	UI_GUI_Bulider["ButtonSimply"].Visible = false
-	UI_GUI_Bulider["ButtonSimply"].BackgroundTransparency = 0
-
-	UI_GUI_Bulider["MainFrame"].Parent = UI_GUI_Bulider["MainGui"]
-	UI_GUI_Bulider["MainFrame"].Position = PosGui
-	UI_GUI_Bulider["MainFrame"].Size = SizeGui
-	UI_GUI_Bulider["MainFrame"].BorderSizePixel = 1
-
-	UI_GUI_Bulider["UIShadow"].Parent = UI_GUI_Bulider["MainFrame"]
-
-	UI_GUI_Bulider["UISizeConstraint"].Parent = UI_GUI_Bulider["MainFrame"]
-	UI_GUI_Bulider["UISizeConstraint"].MinSize = MinSizeGui
-
-
-
-	UI_GUI_Bulider["FrameBar"].Parent = UI_GUI_Bulider["MainFrame"]
-	UI_GUI_Bulider["FrameBar"].Size = UDim2.new(1, 0, 0, 40)
-	UI_GUI_Bulider["FrameBar"].BorderSizePixel = 1
-
-	UI_GUI_Bulider["UIListLayoutOne"].Parent = UI_GUI_Bulider["FrameBar"]
-	UI_GUI_Bulider["UIListLayoutOne"].FillDirection = Enum.FillDirection.Horizontal
-	UI_GUI_Bulider["UIListLayoutOne"].HorizontalFlex = Enum.UIFlexAlignment.SpaceBetween
-
-
-
-	UI_GUI_Bulider["FrameBarOne"].Parent = UI_GUI_Bulider["FrameBar"]
-	UI_GUI_Bulider["FrameBarOne"].Size = UDim2.new(0, 0, 1, 0)
-	UI_GUI_Bulider["FrameBarOne"].AutomaticSize = Enum.AutomaticSize.X
-	UI_GUI_Bulider["FrameBarOne"].BackgroundTransparency = 1
-
-	UI_GUI_Bulider["UIListLayoutOneOne"].Parent = UI_GUI_Bulider["FrameBarOne"]
-	UI_GUI_Bulider["UIListLayoutOneOne"].FillDirection = Enum.FillDirection.Horizontal
-	UI_GUI_Bulider["UIListLayoutOneOne"].HorizontalAlignment = Enum.HorizontalAlignment.Left
-
-	UI_GUI_Bulider["ImageLabelGame"].Parent = UI_GUI_Bulider["FrameBarOne"]
-	UI_GUI_Bulider["ImageLabelGame"].Size = UDim2.new(1, 0, 1, 0)
-	UI_GUI_Bulider["ImageLabelGame"].SizeConstraint = Enum.SizeConstraint.RelativeYY
-	UI_GUI_Bulider["ImageLabelGame"].LayoutOrder = 1
-	UI_GUI_Bulider["ImageLabelGame"].Image = "rbxassetid://77754544522243"
-	UI_GUI_Bulider["ImageLabelGame"].ImageColor3 = Color3.fromRGB(0, 0, 0)
-
-	UI_GUI_Bulider["TextLabelGame"].Parent = UI_GUI_Bulider["FrameBarOne"]
-	UI_GUI_Bulider["TextLabelGame"].Size = UDim2.new(0, 0, 1, 0)
-	UI_GUI_Bulider["TextLabelGame"].AutomaticSize = Enum.AutomaticSize.X
-	UI_GUI_Bulider["TextLabelGame"].Text = [[SimplyUI]] --[[SimplyHub]]
-	UI_GUI_Bulider["TextLabelGame"].Font = Enum.Font.SourceSansBold
-	UI_GUI_Bulider["TextLabelGame"].TextXAlignment = Enum.TextXAlignment.Left
-	UI_GUI_Bulider["TextLabelGame"].TextSize = 18
-	UI_GUI_Bulider["TextLabelGame"].LayoutOrder = 2
-
-
-
-
-	UI_GUI_Bulider["FrameBarTwo"].Parent = UI_GUI_Bulider["FrameBar"]
-	UI_GUI_Bulider["FrameBarTwo"].Size = UDim2.new(0, 0, 1, 0)
-	UI_GUI_Bulider["FrameBarTwo"].AutomaticSize = Enum.AutomaticSize.X
-	UI_GUI_Bulider["FrameBarTwo"].BackgroundTransparency = 1
-	
-	UI_GUI_Bulider["UIListLayoutOneTwo"].Parent = UI_GUI_Bulider["FrameBarTwo"]
-	UI_GUI_Bulider["UIListLayoutOneTwo"].FillDirection = Enum.FillDirection.Horizontal
-	UI_GUI_Bulider["UIListLayoutOneTwo"].HorizontalAlignment = Enum.HorizontalAlignment.Right
-
-	if BarButton[1] == true then
-		UI_GUI_Bulider["ImageButtonClose"].Parent = UI_GUI_Bulider["FrameBarTwo"]
-		UI_GUI_Bulider["ImageButtonClose"].Size = UDim2.new(1, 0, 1, 0)
-		UI_GUI_Bulider["ImageButtonClose"].SizeConstraint = Enum.SizeConstraint.RelativeYY
-		UI_GUI_Bulider["ImageButtonClose"].LayoutOrder = 3
-		UI_GUI_Bulider["ImageButtonClose"].Image = "rbxassetid://79193956246760"
-		UI_GUI_Bulider["ImageButtonClose"].ImageColor3 = Color3.fromRGB(0, 0, 0)
-		UI_GUI_Bulider["ImageButtonClose"].Activated:Connect(function()
-			UI_GUI_Bulider["MainGui"]:Destroy()
-			script:Destroy()
-		end)
-	end
-	if BarButton[2] == true then
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].Parent = UI_GUI_Bulider["FrameBarTwo"]
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].Size = UDim2.new(1, 0, 1, 0)
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].SizeConstraint = Enum.SizeConstraint.RelativeYY
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].LayoutOrder = 2
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].Image = "rbxassetid://77217748712428"
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].ImageColor3 = Color3.fromRGB(0, 0, 0)
-		local SaveAll = {
-			Size = nil,
-			Position = nil
-		}
-		UI_GUI_Bulider["ImageButtonMaxMinSize"].Activated:Connect(function()
-			if UI_GUI_Bulider["MainFrame"].Size ~= UDim2.new(1, 0, 1, 0) then
-				SaveAll["Size"] = UI_GUI_Bulider["MainFrame"].Size
-				SaveAll["Position"] = UI_GUI_Bulider["MainFrame"].Position
-				UI_GUI_Bulider["MainFrame"].Size = UDim2.new(1, 0, 1, 0)
-				UI_GUI_Bulider["MainFrame"].Position = UDim2.new(0, 0, 0, 0)
-				UI_GUI_Bulider["ImageButtonMaxMinSize"].Image = "rbxassetid://137089839848915"
-			else
-				UI_GUI_Bulider["MainFrame"].Size = SaveAll["Size"]
-				UI_GUI_Bulider["MainFrame"].Position = SaveAll["Position"]
-				UI_GUI_Bulider["ImageButtonMaxMinSize"].Image = "rbxassetid://77217748712428"
-			end
-		end)
-	end
-	if BarButton[3] == true then
-		UI_GUI_Bulider["ImageButtonMiniSize"].Parent = UI_GUI_Bulider["FrameBarTwo"]
-		UI_GUI_Bulider["ImageButtonMiniSize"].Size = UDim2.new(1, 0, 1, 0)
-		UI_GUI_Bulider["ImageButtonMiniSize"].SizeConstraint = Enum.SizeConstraint.RelativeYY
-		UI_GUI_Bulider["ImageButtonMiniSize"].LayoutOrder = 1
-		UI_GUI_Bulider["ImageButtonMiniSize"].Image = "rbxassetid://119618391049200"
-		UI_GUI_Bulider["ImageButtonMiniSize"].ImageColor3 = Color3.fromRGB(0, 0, 0)
-		UI_GUI_Bulider["ImageButtonMiniSize"].Activated:Connect(function()
-			UI_GUI_Bulider["MainFrame"].Visible = false
-			UI_GUI_Bulider["ButtonSimply"].Visible = true
-		end)
-	end
-
-
-	UI_GUI_Bulider["FrameBox"].Parent = UI_GUI_Bulider["MainFrame"]
-	UI_GUI_Bulider["FrameBox"].Size = UDim2.new(1, 0, 1, -40)
-	UI_GUI_Bulider["FrameBox"].Position = UDim2.new(0, 0, 0, 40)
-
-	UI_GUI_Bulider["FrameMenuScroll"].Parent = UI_GUI_Bulider["FrameBox"]
-	UI_GUI_Bulider["FrameMenuScroll"].Size = UDim2.new(0, 130, 1, 0)
-	UI_GUI_Bulider["FrameMenuScroll"].BorderSizePixel = 1
-
-	UI_GUI_Bulider["ScrollingFrameMenu"].Parent = UI_GUI_Bulider["FrameMenuScroll"]
-	UI_GUI_Bulider["ScrollingFrameMenu"].Size = UDim2.new(1, 0, 1, 0)
-	UI_GUI_Bulider["ScrollingFrameMenu"].BorderSizePixel = 1
-
-	UI_GUI_Bulider["UIListLayoutTwo"].Parent = UI_GUI_Bulider["ScrollingFrameMenu"]
-
-	UI_GUI_Bulider["FrameBoxScroll"].Parent = UI_GUI_Bulider["FrameBox"]
-	UI_GUI_Bulider["FrameBoxScroll"].Size = UDim2.new(1, -130, 1, 0)
-	--UI_GUI_Bulider["FrameBoxScroll"].Transparency = 1
-	UI_GUI_Bulider["FrameBoxScroll"].Position = UDim2.new(0, 130, 0, 0)
-	UI_GUI_Bulider["FrameBoxScroll"].BorderSizePixel = 1
-
-
-	UI_GUI_Bulider["SizeFrame"].Parent = UI_GUI_Bulider["MainFrame"]
-	UI_GUI_Bulider["SizeFrame"].AnchorPoint = Vector2.new(1, 1)
-	UI_GUI_Bulider["SizeFrame"].Position = UDim2.new(1, 0, 1, 0)
-	UI_GUI_Bulider["SizeFrame"].Size = UDim2.new(0, 10, 0, 10)
-	UI_GUI_Bulider["SizeFrame"].Transparency = 1
-
-
-	local UIS = game:GetService('UserInputService')
-	local frame = UI_GUI_Bulider["FrameBar"]
-	local GUI = UI_GUI_Bulider["MainFrame"]
-	local Button = UI_GUI_Bulider["ButtonSimply"]
-	local Size = UI_GUI_Bulider["SizeFrame"]
-	local dragSpeed = 0.001
-
-	if SettingsGui[1] == true then
-		local dragToggle = nil
-		local dragToggle2 = nil
-		local dragStart = nil
-		local startPos = nil
-
-		local function updateInput(input, bool)
-			local delta = input.Position - dragStart
-			local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
-				startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-			if bool then
-				game:GetService('TweenService'):Create(Button, TweenInfo.new(dragSpeed), {Position = position}):Play()
-			else
-				game:GetService('TweenService'):Create(GUI, TweenInfo.new(dragSpeed), {Position = position}):Play()
-			end
-		end
-
-
-
-		frame.InputBegan:Connect(function(input)
-			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-				dragToggle = true
-				dragStart = input.Position
-				startPos = GUI.Position
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragToggle = false
-					end
-				end)
-			end
-		end)
-
-		Button.InputBegan:Connect(function(input)
-			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-				dragToggle2 = true
-				dragStart = input.Position
-				startPos = Button.Position
-				task.delay(0.1, function()
-					if not dragToggle2 then
-						UI_GUI_Bulider["MainFrame"].Visible = true
-						UI_GUI_Bulider["ButtonSimply"].Visible = false
-					end
-				end)
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragToggle2 = false
-					end
-				end)
-			end
-		end)
-
-		UIS.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				if dragToggle then
-					updateInput(input, false)
-				end
-				if dragToggle2 then
-					updateInput(input, true)
-				end
-			end
-		end)
-	end
-
-	if SettingsGui[2] == true then
-		local dragToggleTwo = nil
-		local dragStartTwo = nil
-		local startPosTwo = nil
-		local startPos1 = nil
-
-		local function updateInputTwo(input)
-			local delta = input.Position - dragStartTwo
-			local position = UDim2.new(startPosTwo.X.Scale, startPosTwo.X.Offset + delta.X,
-				startPosTwo.Y.Scale, startPosTwo.Y.Offset + delta.Y)
-			--local position1 = UDim2.new(startPos1.X.Scale, startPos1.X.Offset + delta.X,
-			--startPos1.Y.Scale, startPos1.Y.Offset + delta.Y)
-			game:GetService('TweenService'):Create(GUI, TweenInfo.new(dragSpeed), {Size = position}):Play()
-		end
-
-
-
-		Size.InputBegan:Connect(function(input)
-			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-				local Save_POS1 = UDim2.new(0, GUI.AbsolutePosition.X, 0, GUI.AbsolutePosition.Y)
-				GUI.Position = Save_POS1
-				dragToggleTwo = true
-				dragStartTwo = input.Position
-				startPosTwo = GUI.Size
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragToggleTwo = false
-					end
-				end)
-			end
-		end)
-
-
-
-		UIS.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				if dragToggleTwo then
-					updateInputTwo(input)
-				end
-			end
-		end)
-	end
-	
-	local LabelSimply = {}
-	
-	function LabelSimply:CreateColorSystem()
+function SimplyUI:CreateColorSystem(Object)
 
 		local UI_GUI_ColorSystem = {
 
@@ -484,13 +153,14 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 			ButtonColorCancel = UI_Table["TextButton"]:Clone(),
 		}
 
-		UI_GUI_ColorSystem["ColorFrame"].Parent = UI_GUI_Bulider["MainGui"]
+		UI_GUI_ColorSystem["ColorFrame"].Parent = Object
 		UI_GUI_ColorSystem["ColorFrame"].Name = "Color"
 		UI_GUI_ColorSystem["ColorFrame"].Size = UDim2.new(0, 120, 0, 180)
 		UI_GUI_ColorSystem["ColorFrame"].Position = UDim2.new(0.5, 0, 0.5, 0)
 		UI_GUI_ColorSystem["ColorFrame"].AnchorPoint = Vector2.new(0.5, 0.5)
 		UI_GUI_ColorSystem["ColorFrame"].BorderSizePixel = 1
 		UI_GUI_ColorSystem["ColorFrame"].Visible = false
+		UI_GUI_ColorSystem["ColorFrame"].ZIndex = 2
 
 		UI_GUI_ColorSystem["FrameBoxColor"].Parent = UI_GUI_ColorSystem["ColorFrame"]
 		UI_GUI_ColorSystem["FrameBoxColor"].Size = UDim2.new(1, 0, 1, 0)
@@ -771,59 +441,398 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 			UI_GUI_ColorSystem["ButtonColorOK"],
 			UI_GUI_ColorSystem["ButtonColorCancel"]
 		}
-	end
+end
 
-	function LabelSimply:CreateTabSystem()
-		local UI_GUI_TabSystem = {
-			TabFrame = UI_Table["Frame"]:Clone(),
-			ScrollingFrameTab = UI_Table["ScrollingFrame"]:Clone(),
-			UIListLayoutTab = UI_Table["UIListLayout"]:Clone(),
-			ButtonTab = UI_Table["TextButton"]:Clone(),
-			TextButton = UI_Table["TextLabel"]:Clone(),
-			SizeConstraint = UI_Table["UISizeConstraint"]:Clone(),
-		}
-		UI_GUI_TabSystem["TabFrame"].Parent = UI_GUI_Bulider["MainGui"]
-		UI_GUI_TabSystem["TabFrame"].Name = "Tab"
-		UI_GUI_TabSystem["TabFrame"].BackgroundColor3 = Color3.fromRGB(255, 179, 0)
-		UI_GUI_TabSystem["TabFrame"].AutomaticSize =  Enum.AutomaticSize.Y
-		UI_GUI_TabSystem["TabFrame"].BorderSizePixel = 1
-		UI_GUI_TabSystem["TabFrame"].Visible = false
+function SimplyUI:CreateTabSystem(Object)
+	local UI_GUI_TabSystem = {
+		TabFrame = UI_Table["Frame"]:Clone(),
+		ScrollingFrameTab = UI_Table["ScrollingFrame"]:Clone(),
+		UIListLayoutTab = UI_Table["UIListLayout"]:Clone(),
+		ButtonTab = UI_Table["TextButton"]:Clone(),
+		TextButton = UI_Table["TextLabel"]:Clone(),
+		SizeConstraint = UI_Table["UISizeConstraint"]:Clone(),
+	}
+	UI_GUI_TabSystem["TabFrame"].Parent = Object
+	UI_GUI_TabSystem["TabFrame"].Name = "Tab"
+	UI_GUI_TabSystem["TabFrame"].BackgroundColor3 = Color3.fromRGB(255, 179, 0)
+	UI_GUI_TabSystem["TabFrame"].AutomaticSize =  Enum.AutomaticSize.Y
+	UI_GUI_TabSystem["TabFrame"].BorderSizePixel = 1
+	UI_GUI_TabSystem["TabFrame"].Visible = false
+	UI_GUI_TabSystem["TabFrame"].ZIndex = 2
 
-		UI_GUI_TabSystem["SizeConstraint"].Parent = UI_GUI_TabSystem["TabFrame"]
-		UI_GUI_TabSystem["SizeConstraint"].MaxSize = Vector2.new(1000000, 320)
-		UI_GUI_TabSystem["SizeConstraint"].MinSize = Vector2.new(0, 20)
+	UI_GUI_TabSystem["SizeConstraint"].Parent = UI_GUI_TabSystem["TabFrame"]
+	UI_GUI_TabSystem["SizeConstraint"].MaxSize = Vector2.new(1000000, 320)
+	UI_GUI_TabSystem["SizeConstraint"].MinSize = Vector2.new(0, 20)
 
-		UI_GUI_TabSystem["ScrollingFrameTab"].Parent = UI_GUI_TabSystem["TabFrame"]
-		UI_GUI_TabSystem["ScrollingFrameTab"].Size = UDim2.new(1, 0, 1, 0)
-		UI_GUI_TabSystem["ScrollingFrameTab"].BackgroundTransparency = 1
-		UI_GUI_TabSystem["ScrollingFrameTab"].AutomaticSize = Enum.AutomaticSize.Y
-		UI_GUI_TabSystem["ScrollingFrameTab"].ScrollBarThickness = 0
+	UI_GUI_TabSystem["ScrollingFrameTab"].Parent = UI_GUI_TabSystem["TabFrame"]
+	UI_GUI_TabSystem["ScrollingFrameTab"].Size = UDim2.new(1, 0, 1, 0)
+	UI_GUI_TabSystem["ScrollingFrameTab"].BackgroundTransparency = 1
+	UI_GUI_TabSystem["ScrollingFrameTab"].AutomaticSize = Enum.AutomaticSize.Y
+	UI_GUI_TabSystem["ScrollingFrameTab"].ScrollBarThickness = 0
 
-		UI_GUI_TabSystem["UIListLayoutTab"].Parent = UI_GUI_TabSystem["ScrollingFrameTab"]
+	UI_GUI_TabSystem["UIListLayoutTab"].Parent = UI_GUI_TabSystem["ScrollingFrameTab"]
 
-		UI_GUI_TabSystem["ButtonTab"].BackgroundTransparency = 1
-		UI_GUI_TabSystem["ButtonTab"].Text = ""
-		UI_GUI_TabSystem["ButtonTab"].TextTransparency = 1
-		UI_GUI_TabSystem["ButtonTab"].Size = UDim2.new(1, 0, 0, 20)
+	UI_GUI_TabSystem["ButtonTab"].BackgroundTransparency = 1
+	UI_GUI_TabSystem["ButtonTab"].Text = ""
+	UI_GUI_TabSystem["ButtonTab"].TextTransparency = 1
+	UI_GUI_TabSystem["ButtonTab"].Size = UDim2.new(1, 0, 0, 20)
 		--UI_GUI_TabSystem["ButtonTab"].AutomaticSize = Enum.AutomaticSize.X
 
-		UI_GUI_TabSystem["TextButton"].Parent = UI_GUI_TabSystem["ButtonTab"]
-		UI_GUI_TabSystem["TextButton"].TextColor3 = Color3.fromRGB(255, 255, 255)
-		UI_GUI_TabSystem["TextButton"].BackgroundTransparency = 1
-		UI_GUI_TabSystem["TextButton"].Text = ""
-		UI_GUI_TabSystem["TextButton"].Size = UDim2.new(1, 0, 1, 0)
-		UI_GUI_TabSystem["TextButton"].AutomaticSize = Enum.AutomaticSize.X
+	UI_GUI_TabSystem["TextButton"].Parent = UI_GUI_TabSystem["ButtonTab"]
+	UI_GUI_TabSystem["TextButton"].TextColor3 = Color3.fromRGB(255, 255, 255)
+	UI_GUI_TabSystem["TextButton"].BackgroundTransparency = 1
+	UI_GUI_TabSystem["TextButton"].Text = ""
+	UI_GUI_TabSystem["TextButton"].Size = UDim2.new(1, 0, 1, 0)
+	UI_GUI_TabSystem["TextButton"].AutomaticSize = Enum.AutomaticSize.X
 
-		return {
-			UI_GUI_TabSystem["TabFrame"],
-			UI_GUI_TabSystem["ScrollingFrameTab"],
-			UI_GUI_TabSystem["ButtonTab"],
-			UI_GUI_TabSystem["TextButton"]
-		}
-	end
+	return {
+		UI_GUI_TabSystem["TabFrame"],
+		UI_GUI_TabSystem["ScrollingFrameTab"],
+		UI_GUI_TabSystem["ButtonTab"],
+		UI_GUI_TabSystem["TextButton"]
+	}
+end
+
+function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui, BarButton)
+	local UI_GUI_Bulider = {
+		--GUI
+
+		MainGui = UI_Table["ScreenGui"]:Clone(),
+		ButtonSimply = UI_Table["ImageButton"]:Clone(),
+		MainFrame = UI_Table["CanvasGroup"]:Clone(),
+		UIShadow = UI_Table["UIShadow"]:Clone(),
+		UISizeConstraint = UI_Table["UISizeConstraint"]:Clone(),
+
+		FrameBar = UI_Table["Frame"]:Clone(),
+
+		UIListLayoutOne = UI_Table["UIListLayout"]:Clone(),
+		FrameBarOne = UI_Table["Frame"]:Clone(),
+
+		UIListLayoutOneOne = UI_Table["UIListLayout"]:Clone(),
+		ImageLabelGame = UI_Table["ImageLabel"]:Clone(),
+		TextLabelGame = UI_Table["TextLabel"]:Clone(),
+
+		FrameBarTwo = UI_Table["Frame"]:Clone(),
+
+		UIListLayoutOneTwo = UI_Table["UIListLayout"]:Clone(),
+		ImageButtonClose = UI_Table["ImageButton"]:Clone(),
+		ImageButtonMaxMinSize = UI_Table["ImageButton"]:Clone(),
+		ImageButtonMiniSize = UI_Table["ImageButton"]:Clone(),
+
+		FrameBox = UI_Table["Frame"]:Clone(),
+
+		FrameBoxScroll = UI_Table["Frame"]:Clone(),
+
+		FrameMenuScroll = UI_Table["Frame"]:Clone(),
+		ScrollingFrameMenu = UI_Table["ScrollingFrame"]:Clone(),
+
+		UIListLayoutTwo = UI_Table["UIListLayout"]:Clone(),
+
+		SizeFrame = UI_Table["Frame"]:Clone(),
+
+
+		TabFrame = UI_Table["Frame"]:Clone(),
+		ScrollingFrameTab = UI_Table["ScrollingFrame"]:Clone(),
+		UIListLayoutTab = UI_Table["UIListLayout"]:Clone(),
+		ButtonTab = UI_Table["TextButton"]:Clone(),
+
+		ColorFrame = UI_Table["Frame"]:Clone(),
+		--ButtonColorRGB = UI_Table["TextButton"]:Clone(),
+		--ButtonColorSelect = UI_Table["TextButton"]:Clone(),
+
+		UIListLayoutColor = UI_Table["UIListLayout"]:Clone(),
+
+		FrameBoxColor = UI_Table["Frame"]:Clone(),
+		FrameBoxColorRGB = UI_Table["Frame"]:Clone(),
+
+		FrameColorInputBox = UI_Table["Frame"]:Clone(),
+		UIListLayoutInputColor = UI_Table["UIListLayout"]:Clone(),
+		InputRed = UI_Table["TextBox"]:Clone(),
+		InputGreen = UI_Table["TextBox"]:Clone(),
+		InputBlue = UI_Table["TextBox"]:Clone(),
+
+		InputHEX = UI_Table["TextBox"]:Clone(),
+
+		FrameColorButtonBox = UI_Table["Frame"]:Clone(),
+		ButtonColorOK = UI_Table["TextButton"]:Clone(),
+		ButtonColorCancel = UI_Table["TextButton"]:Clone(),
+
+
+	}
 	
-	function LabelSimply:Menu(Image, Text, MainBool)
-		
+	
+	UI_GUI_Bulider["MainGui"].Parent = GameGuiPath --game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+	UI_GUI_Bulider["MainGui"].Name = "SimplyUI"
+	
+	local Systems = {
+		Color = SimplyUI:CreateColorSystem(UI_GUI_Bulider["MainGui"]),
+		Tab = SimplyUI:CreateTabSystem(UI_GUI_Bulider["MainGui"])
+	}
+	
+	UI_GUI_Bulider["ButtonSimply"].Parent = UI_GUI_Bulider["MainGui"]
+	UI_GUI_Bulider["ButtonSimply"].BorderSizePixel = 1
+	UI_GUI_Bulider["ButtonSimply"].Size = UDim2.new(0, 50, 0, 50)
+	UI_GUI_Bulider["ButtonSimply"].Position = UDim2.new(0, 100, 0, 100)
+	UI_GUI_Bulider["ButtonSimply"].Image = "rbxassetid://77754544522243"
+	UI_GUI_Bulider["ButtonSimply"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+	UI_GUI_Bulider["ButtonSimply"].Visible = false
+	UI_GUI_Bulider["ButtonSimply"].BackgroundTransparency = 0
+
+	UI_GUI_Bulider["MainFrame"].Parent = UI_GUI_Bulider["MainGui"]
+	UI_GUI_Bulider["MainFrame"].Position = PosGui
+	UI_GUI_Bulider["MainFrame"].Size = SizeGui
+	UI_GUI_Bulider["MainFrame"].BorderSizePixel = 1
+
+	UI_GUI_Bulider["UIShadow"].Parent = UI_GUI_Bulider["MainFrame"]
+
+	UI_GUI_Bulider["UISizeConstraint"].Parent = UI_GUI_Bulider["MainFrame"]
+	UI_GUI_Bulider["UISizeConstraint"].MinSize = MinSizeGui
+
+
+
+	UI_GUI_Bulider["FrameBar"].Parent = UI_GUI_Bulider["MainFrame"]
+	UI_GUI_Bulider["FrameBar"].Size = UDim2.new(1, 0, 0, 40)
+	UI_GUI_Bulider["FrameBar"].BorderSizePixel = 1
+
+	UI_GUI_Bulider["UIListLayoutOne"].Parent = UI_GUI_Bulider["FrameBar"]
+	UI_GUI_Bulider["UIListLayoutOne"].FillDirection = Enum.FillDirection.Horizontal
+	UI_GUI_Bulider["UIListLayoutOne"].HorizontalFlex = Enum.UIFlexAlignment.SpaceBetween
+
+
+
+	UI_GUI_Bulider["FrameBarOne"].Parent = UI_GUI_Bulider["FrameBar"]
+	UI_GUI_Bulider["FrameBarOne"].Size = UDim2.new(0, 0, 1, 0)
+	UI_GUI_Bulider["FrameBarOne"].AutomaticSize = Enum.AutomaticSize.X
+	UI_GUI_Bulider["FrameBarOne"].BackgroundTransparency = 1
+
+	UI_GUI_Bulider["UIListLayoutOneOne"].Parent = UI_GUI_Bulider["FrameBarOne"]
+	UI_GUI_Bulider["UIListLayoutOneOne"].FillDirection = Enum.FillDirection.Horizontal
+	UI_GUI_Bulider["UIListLayoutOneOne"].HorizontalAlignment = Enum.HorizontalAlignment.Left
+
+	UI_GUI_Bulider["ImageLabelGame"].Parent = UI_GUI_Bulider["FrameBarOne"]
+	UI_GUI_Bulider["ImageLabelGame"].Size = UDim2.new(1, 0, 1, 0)
+	UI_GUI_Bulider["ImageLabelGame"].SizeConstraint = Enum.SizeConstraint.RelativeYY
+	UI_GUI_Bulider["ImageLabelGame"].LayoutOrder = 1
+	UI_GUI_Bulider["ImageLabelGame"].Image = "rbxassetid://77754544522243"
+	UI_GUI_Bulider["ImageLabelGame"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+
+	UI_GUI_Bulider["TextLabelGame"].Parent = UI_GUI_Bulider["FrameBarOne"]
+	UI_GUI_Bulider["TextLabelGame"].Size = UDim2.new(0, 0, 1, 0)
+	UI_GUI_Bulider["TextLabelGame"].AutomaticSize = Enum.AutomaticSize.X
+	UI_GUI_Bulider["TextLabelGame"].Text = [[SimplyUI]] --[[SimplyHub]]
+	UI_GUI_Bulider["TextLabelGame"].Font = Enum.Font.SourceSansBold
+	UI_GUI_Bulider["TextLabelGame"].TextXAlignment = Enum.TextXAlignment.Left
+	UI_GUI_Bulider["TextLabelGame"].TextSize = 18
+	UI_GUI_Bulider["TextLabelGame"].LayoutOrder = 2
+
+
+
+
+	UI_GUI_Bulider["FrameBarTwo"].Parent = UI_GUI_Bulider["FrameBar"]
+	UI_GUI_Bulider["FrameBarTwo"].Size = UDim2.new(0, 0, 1, 0)
+	UI_GUI_Bulider["FrameBarTwo"].AutomaticSize = Enum.AutomaticSize.X
+	UI_GUI_Bulider["FrameBarTwo"].BackgroundTransparency = 1
+
+	UI_GUI_Bulider["UIListLayoutOneTwo"].Parent = UI_GUI_Bulider["FrameBarTwo"]
+	UI_GUI_Bulider["UIListLayoutOneTwo"].FillDirection = Enum.FillDirection.Horizontal
+	UI_GUI_Bulider["UIListLayoutOneTwo"].HorizontalAlignment = Enum.HorizontalAlignment.Right
+
+	if BarButton[1] == true then
+		UI_GUI_Bulider["ImageButtonClose"].Parent = UI_GUI_Bulider["FrameBarTwo"]
+		UI_GUI_Bulider["ImageButtonClose"].Size = UDim2.new(1, 0, 1, 0)
+		UI_GUI_Bulider["ImageButtonClose"].SizeConstraint = Enum.SizeConstraint.RelativeYY
+		UI_GUI_Bulider["ImageButtonClose"].LayoutOrder = 3
+		UI_GUI_Bulider["ImageButtonClose"].Image = "rbxassetid://79193956246760"
+		UI_GUI_Bulider["ImageButtonClose"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+		UI_GUI_Bulider["ImageButtonClose"].Activated:Connect(function()
+			UI_GUI_Bulider["MainGui"]:Destroy()
+			script:Destroy()
+		end)
+	end
+	if BarButton[2] == true then
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].Parent = UI_GUI_Bulider["FrameBarTwo"]
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].Size = UDim2.new(1, 0, 1, 0)
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].SizeConstraint = Enum.SizeConstraint.RelativeYY
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].LayoutOrder = 2
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].Image = "rbxassetid://77217748712428"
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+		local SaveAll = {
+			Size = nil,
+			Position = nil
+		}
+		UI_GUI_Bulider["ImageButtonMaxMinSize"].Activated:Connect(function()
+			if UI_GUI_Bulider["MainFrame"].Size ~= UDim2.new(1, 0, 1, 0) then
+				SaveAll["Size"] = UI_GUI_Bulider["MainFrame"].Size
+				SaveAll["Position"] = UI_GUI_Bulider["MainFrame"].Position
+				UI_GUI_Bulider["MainFrame"].Size = UDim2.new(1, 0, 1, 0)
+				UI_GUI_Bulider["MainFrame"].Position = UDim2.new(0, 0, 0, 0)
+				UI_GUI_Bulider["ImageButtonMaxMinSize"].Image = "rbxassetid://137089839848915"
+			else
+				UI_GUI_Bulider["MainFrame"].Size = SaveAll["Size"]
+				UI_GUI_Bulider["MainFrame"].Position = SaveAll["Position"]
+				UI_GUI_Bulider["ImageButtonMaxMinSize"].Image = "rbxassetid://77217748712428"
+			end
+		end)
+	end
+	if BarButton[3] == true then
+		UI_GUI_Bulider["ImageButtonMiniSize"].Parent = UI_GUI_Bulider["FrameBarTwo"]
+		UI_GUI_Bulider["ImageButtonMiniSize"].Size = UDim2.new(1, 0, 1, 0)
+		UI_GUI_Bulider["ImageButtonMiniSize"].SizeConstraint = Enum.SizeConstraint.RelativeYY
+		UI_GUI_Bulider["ImageButtonMiniSize"].LayoutOrder = 1
+		UI_GUI_Bulider["ImageButtonMiniSize"].Image = "rbxassetid://119618391049200"
+		UI_GUI_Bulider["ImageButtonMiniSize"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+		UI_GUI_Bulider["ImageButtonMiniSize"].Activated:Connect(function()
+			UI_GUI_Bulider["MainFrame"].Visible = false
+			UI_GUI_Bulider["ButtonSimply"].Visible = true
+		end)
+	end
+
+
+	UI_GUI_Bulider["FrameBox"].Parent = UI_GUI_Bulider["MainFrame"]
+	UI_GUI_Bulider["FrameBox"].Size = UDim2.new(1, 0, 1, -40)
+	UI_GUI_Bulider["FrameBox"].Position = UDim2.new(0, 0, 0, 40)
+
+	UI_GUI_Bulider["FrameMenuScroll"].Parent = UI_GUI_Bulider["FrameBox"]
+	UI_GUI_Bulider["FrameMenuScroll"].Size = UDim2.new(0, 130, 1, 0)
+	UI_GUI_Bulider["FrameMenuScroll"].BorderSizePixel = 1
+
+	UI_GUI_Bulider["ScrollingFrameMenu"].Parent = UI_GUI_Bulider["FrameMenuScroll"]
+	UI_GUI_Bulider["ScrollingFrameMenu"].Size = UDim2.new(1, 0, 1, 0)
+	UI_GUI_Bulider["ScrollingFrameMenu"].BorderSizePixel = 1
+
+	UI_GUI_Bulider["UIListLayoutTwo"].Parent = UI_GUI_Bulider["ScrollingFrameMenu"]
+
+	UI_GUI_Bulider["FrameBoxScroll"].Parent = UI_GUI_Bulider["FrameBox"]
+	UI_GUI_Bulider["FrameBoxScroll"].Size = UDim2.new(1, -130, 1, 0)
+	--UI_GUI_Bulider["FrameBoxScroll"].Transparency = 1
+	UI_GUI_Bulider["FrameBoxScroll"].Position = UDim2.new(0, 130, 0, 0)
+	UI_GUI_Bulider["FrameBoxScroll"].BorderSizePixel = 1
+
+
+	UI_GUI_Bulider["SizeFrame"].Parent = UI_GUI_Bulider["MainFrame"]
+	UI_GUI_Bulider["SizeFrame"].AnchorPoint = Vector2.new(1, 1)
+	UI_GUI_Bulider["SizeFrame"].Position = UDim2.new(1, 0, 1, 0)
+	UI_GUI_Bulider["SizeFrame"].Size = UDim2.new(0, 10, 0, 10)
+	UI_GUI_Bulider["SizeFrame"].Transparency = 1
+
+
+	local UIS = game:GetService('UserInputService')
+	local frame = UI_GUI_Bulider["FrameBar"]
+	local GUI = UI_GUI_Bulider["MainFrame"]
+	local Button = UI_GUI_Bulider["ButtonSimply"]
+	local Size = UI_GUI_Bulider["SizeFrame"]
+	local dragSpeed = 0.001
+
+	if SettingsGui[1] == true then
+		local dragToggle = nil
+		local dragToggle2 = nil
+		local dragStart = nil
+		local startPos = nil
+
+		local function updateInput(input, bool)
+			local delta = input.Position - dragStart
+			local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+				startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			if bool then
+				game:GetService('TweenService'):Create(Button, TweenInfo.new(dragSpeed), {Position = position}):Play()
+			else
+				game:GetService('TweenService'):Create(GUI, TweenInfo.new(dragSpeed), {Position = position}):Play()
+			end
+		end
+
+
+
+		frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+				dragToggle = true
+				dragStart = input.Position
+				startPos = GUI.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+
+		Button.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+				dragToggle2 = true
+				dragStart = input.Position
+				startPos = Button.Position
+				task.delay(0.1, function()
+					if not dragToggle2 then
+						UI_GUI_Bulider["MainFrame"].Visible = true
+						UI_GUI_Bulider["ButtonSimply"].Visible = false
+					end
+				end)
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle2 = false
+					end
+				end)
+			end
+		end)
+
+		UIS.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				if dragToggle then
+					updateInput(input, false)
+				end
+				if dragToggle2 then
+					updateInput(input, true)
+				end
+			end
+		end)
+	end
+
+	if SettingsGui[2] == true then
+		local dragToggleTwo = nil
+		local dragStartTwo = nil
+		local startPosTwo = nil
+		local startPos1 = nil
+
+		local function updateInputTwo(input)
+			local delta = input.Position - dragStartTwo
+			local position = UDim2.new(startPosTwo.X.Scale, startPosTwo.X.Offset + delta.X,
+				startPosTwo.Y.Scale, startPosTwo.Y.Offset + delta.Y)
+			--local position1 = UDim2.new(startPos1.X.Scale, startPos1.X.Offset + delta.X,
+			--startPos1.Y.Scale, startPos1.Y.Offset + delta.Y)
+			game:GetService('TweenService'):Create(GUI, TweenInfo.new(dragSpeed), {Size = position}):Play()
+		end
+
+
+
+		Size.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+				local Save_POS1 = UDim2.new(0, GUI.AbsolutePosition.X, 0, GUI.AbsolutePosition.Y)
+				GUI.Position = Save_POS1
+				dragToggleTwo = true
+				dragStartTwo = input.Position
+				startPosTwo = GUI.Size
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggleTwo = false
+					end
+				end)
+			end
+		end)
+
+
+
+		UIS.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				if dragToggleTwo then
+					updateInputTwo(input)
+				end
+			end
+		end)
+	end
+
+	local LabelSimply = {UI_GUI_Bulider["MainFrame"], UI_GUI_Bulider["UIShadow"]}
+
+	function LabelSimply:Menu(Image, Text)
+
 		local UI_GUI_MenuBox = {
 			ScrollingFrameBox = UI_Table["ScrollingFrame"]:Clone(),
 			UIListLayoutThree = UI_Table["UIListLayout"]:Clone(),
@@ -843,9 +852,9 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 		UI_GUI_MenuBox["UIPadding"].PaddingBottom = UDim.new(0, 10)
 		UI_GUI_MenuBox["UIPadding"].PaddingLeft = UDim.new(0, 10)
 		UI_GUI_MenuBox["UIPadding"].PaddingRight = UDim.new(0, 10)
-		
+
 		local LabelSimplyTwo = {}
-		
+
 		function LabelSimplyTwo:Box(Text)
 			local UI_GUI_Box = {
 				Frame = UI_Table["Frame"]:Clone(),
@@ -866,12 +875,12 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 			UI_GUI_Box["TextLabel"].TextSize = 16
 			UI_GUI_Box["TextLabel"].Size = UDim2.new(1, 0, 0, 30)
 			UI_GUI_Box["TextLabel"].TextXAlignment = Enum.TextXAlignment.Left
-			
-			local LabelSimplyThree = {}
-			
 
-			function LabelSimplyThree:Switch(Text, CallBack)
-				
+			local LabelSimplyThree = {}
+
+
+			function LabelSimplyThree:Switch(Text, Bool, CallBack)
+
 				local UI_GUI_Switch = {
 					Frame = UI_Table["Frame"]:Clone(),
 					FrameTwo = UI_Table["Frame"]:Clone(),
@@ -881,7 +890,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					BoolValue = false,
 					CallBack = CallBack or function() end
 				}
-				
+
 				UI_GUI_Switch["Frame"].Parent = UI_GUI_Box["Frame"]
 				UI_GUI_Switch["Frame"].Size = UDim2.new(1, 0, 0, 40)
 				UI_GUI_Switch["Frame"].BorderSizePixel = 1
@@ -913,11 +922,12 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				UI_GUI_Switch["UIPadding"].Parent = UI_GUI_Switch["Frame"]
 				UI_GUI_Switch["UIPadding"].PaddingLeft = UDim.new(0, 10)
 				UI_GUI_Switch["UIPadding"].PaddingRight = UDim.new(0, 10)
-
-				UI_GUI_Switch["BoolValue"].Parent = UI_GUI_Switch["TextButton"]
-				UI_GUI_Switch["BoolValue"].Name = Text
-				UI_GUI_Switch["BoolValue"].Value = false
-
+				
+				if Bool then
+					UI_GUI_Switch["FrameTwo"].BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+					UI_GUI_Switch["FrameTwo"].Position = UDim2.new(0.5, 0, 0, 0)
+				end
+				
 				UI_GUI_Switch["TextButton"].Activated:Connect(function()
 					UI_GUI_Switch["BoolValue"] = not UI_GUI_Switch["BoolValue"]
 					if UI_GUI_Switch["BoolValue"] then
@@ -974,7 +984,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				UI_GUI_Button["UIPaddingText"].Parent = UI_GUI_Button["TextButton"]
 				UI_GUI_Button["UIPaddingText"].PaddingLeft = UDim.new(0, 5)
 				UI_GUI_Button["UIPaddingText"].PaddingRight = UDim.new(0, 5)
-				
+
 				UI_GUI_Button["TextButton"].Activated:Connect(function()
 					pcall(UI_GUI_Button["CallBack"])
 				end)
@@ -1051,7 +1061,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					UI_GUI_TextBox["CallBack"](UI_GUI_TextBox["TextBox"].Text)
 				end)
 			end
-			function LabelSimplyThree:Color(Text, StandartColor, UIColor, CallBack)
+			function LabelSimplyThree:Color(Text, StandartColor, CallBack)
 				local UI_GUI_Color = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextButton = UI_Table["TextButton"]:Clone(),
@@ -1091,30 +1101,30 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				UI_GUI_Color["UIPadding"].PaddingRight = UDim.new(0, 10)
 
 				UI_GUI_Color["TextButton"].Activated:Connect(function()
-					if LabelSimply:CreateColorSystem()[1].Visible == true then
-						LabelSimply:CreateColorSystem()[1].Visible = false	
+					if Systems["Color"][1].Visible == true then
+						Systems["Color"][1].Visible = false	
 					else
-						LabelSimply:CreateColorSystem()[1].Visible = true
-						LabelSimply:CreateColorSystem()[2].BackgroundColor3 = UI_GUI_Color["TextButton"].BackgroundColor3
+						Systems["Color"][1].Visible = true
+						Systems["Color"][2].BackgroundColor3 = UI_GUI_Color["TextButton"].BackgroundColor3
 						local Fixs = {
 							nil,
 							nil
 						}
-						Fixs[1] = LabelSimply:CreateColorSystem()[3].Activated:Connect(function()
-							UI_GUI_Color["TextButton"].BackgroundColor3 = LabelSimply:CreateColorSystem()[2].BackgroundColor3
-							UI_GUI_Color["ColorValue"].Value = LabelSimply:CreateColorSystem()[2].BackgroundColor3
-							LabelSimply:CreateColorSystem()[1].Visible = false
+						Fixs[1] = Systems["Color"][3].Activated:Connect(function()
+							UI_GUI_Color["TextButton"].BackgroundColor3 = Systems["Color"][2].BackgroundColor3
+							UI_GUI_Color["ColorValue"].Value = Systems["Color"][2].BackgroundColor3
+							UI_GUI_Color["CallBack"](UI_GUI_Color["TextButton"].BackgroundColor3)
+							Systems["Color"][1].Visible = false
 							Fixs[1]:Disconnect()
 						end)
-						Fixs[2] = LabelSimply:CreateColorSystem()[4].Activated:Connect(function()
-							LabelSimply:CreateColorSystem()[1].Visible = false
+						Fixs[2] = Systems["Color"][4].Activated:Connect(function()
+							Systems["Color"][1].Visible = false
 							Fixs[2]:Disconnect()
 						end)
 					end
-					UI_GUI_Color["CallBack"](UI_GUI_Color["TextButton"].BackgroundColor3)
 				end)
 			end
-			function LabelSimplyThree:Tab(Text, ItemText, SettingsTab, TabItems, UITabs, ColorTab, CallBack)
+			function LabelSimplyThree:Tab(Text, ItemText, SettingsTab, TabItems, ColorTab, CallBack)
 				local UI_GUI_Tab = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextButton = UI_Table["TextButton"]:Clone(),
@@ -1172,7 +1182,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				UI_GUI_Tab["UIPaddingText"].PaddingRight = UDim.new(0, 25)
 
 				UI_GUI_Tab["TextButton"].Activated:Connect(function()
-					LabelSimply:CreateTabSystem()[1].BackgroundColor3 = ColorTab
+					Systems["Tab"][1].BackgroundColor3 = ColorTab
 					local function AutoAnimText(ObjectText, ObjectScroll)
 						local TweenService = game:GetService("TweenService")
 						local A = 50
@@ -1181,7 +1191,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 						local D = (C * 30) / 100
 						local TweenInfoOn = TweenInfo.new(C, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 2)
 						local TweenInfoOff = TweenInfo.new(D, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 1)
-						local TweenTableOn = {Position = UDim2.new(0, LabelSimply:CreateTabSystem()[2].AbsoluteSize.X - ObjectText.AbsoluteSize.X, 0, 0)}
+						local TweenTableOn = {Position = UDim2.new(0, Systems["Tab"][2].AbsoluteSize.X - ObjectText.AbsoluteSize.X, 0, 0)}
 						local TweenTableOff = {Position = UDim2.new(0, 0, 0, 0)}
 						local TweenOn = TweenService:Create(ObjectText, TweenInfoOn, TweenTableOn)
 						local TweenOff = TweenService:Create(ObjectText, TweenInfoOff, TweenTableOff)
@@ -1203,90 +1213,91 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 						--UITabs[1].Position = UDim2.new()
 						--UITabs[1].Size = UDim2.new()
 						--UITabs[1].AnchorPoint = Vector2.new(0, 0.5)
-						LabelSimply:CreateTabSystem()[1].Size = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsoluteSize.X, 0, 0)
-						LabelSimply:CreateTabSystem()[1].Position = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsolutePosition.X, 0, UI_GUI_Tab["TextButton"].AbsolutePosition.Y + UI_GUI_Tab["TextButton"].AbsoluteSize.Y)
+						Systems["Tab"][1].Size = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsoluteSize.X, 0, 0)
+						Systems["Tab"][1].Position = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsolutePosition.X, 0, UI_GUI_Tab["TextButton"].AbsolutePosition.Y + UI_GUI_Tab["TextButton"].AbsoluteSize.Y)
 					end
-					if LabelSimply:CreateTabSystem()[1].Visible == true then
-						LabelSimply:CreateTabSystem()[1].Visible = false
+					if Systems["Tab"][1].Visible == true then
+						Systems["Tab"][1].Visible = false
 					else
-						LabelSimply:CreateTabSystem()[1].Visible = true
+						Systems["Tab"][1].Visible = true
 						local Test
 						Test = UI_GUI_Tab["TextButton"].Changed:Connect(function()
 							AutoPos()
-							if LabelSimply:CreateTabSystem()[1].Visible == false then
+							if Systems["Tab"][1].Visible == false then
 								Test:Disconnect()
 							end
 						end)
 						AutoPos()
 						if SettingsTab ~= "Player" then
-							for i, v in pairs(LabelSimply:CreateTabSystem()[2]:GetChildren()) do
+							for i, v in pairs(Systems["Tab"][2]:GetChildren()) do
 								if v:IsA("TextButton") then
 									v:Destroy()
 								end
 							end
 							for i, v in pairs(TabItems) do
-								local Clone = LabelSimply:CreateTabSystem()[3]:Clone()
+								local Clone = Systems["Tab"][3]:Clone()
 								Clone.TextLabel.Text = v
-								Clone.Parent = LabelSimply:CreateTabSystem()[2]
+								Clone.Parent = Systems["Tab"][2]
 								local conn
 								conn = Clone.Activated:Connect(function()
 									UI_GUI_Tab["TextButton"].Text = Clone.TextLabel.Text
 									UI_GUI_Tab["StringValue"].Value = v
-									LabelSimply:CreateTabSystem()[1].Visible = false
+									UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
+									Systems["Tab"][1].Visible = false
 									conn:Disconnect()
 								end)
-								if Clone.TextLabel.AbsoluteSize.X > LabelSimply:CreateTabSystem()[2].AbsoluteSize.X then
-									AutoAnimText(Clone.TextLabel, LabelSimply:CreateTabSystem()[2])
+								if Clone.TextLabel.AbsoluteSize.X > Systems["Tab"][2].AbsoluteSize.X then
+									AutoAnimText(Clone.TextLabel, Systems["Tab"][2])
 								end
 							end
 
 						else
-							for i, v in pairs(LabelSimply:CreateTabSystem()[2]:GetChildren()) do
+							for i, v in pairs(Systems["Tab"][2]:GetChildren()) do
 								if v:IsA("TextButton") then
 									v:Destroy()
 								end
 							end
 							for i, v in pairs(game:GetService("Players"):GetChildren()) do
 								if #game:GetService("Players"):GetChildren() == 1 then
-									local Clone = LabelSimply:CreateTabSystem()[3]:Clone()
+									local Clone = Systems["Tab"][3]:Clone()
 									Clone.TextLabel.Text = "No player"
 									--Clone.Interactable = false
-									Clone.Parent = LabelSimply:CreateTabSystem()[2]
+									Clone.Parent = Systems["Tab"][2]
 									local conn
 									conn = Clone.Activated:Connect(function()
 										--UI_GUI_Tab["TextButton"].Text = Clone.Text
-										LabelSimply:CreateTabSystem()[1].Visible = false
+										Systems["Tab"][1].Visible = false
 										conn:Disconnect()
 									end)
-									if Clone.TextLabel.AbsoluteSize.X > LabelSimply:CreateTabSystem()[2].AbsoluteSize.X then
-										AutoAnimText(Clone.TextLabel, LabelSimply:CreateTabSystem()[2])
+									if Clone.TextLabel.AbsoluteSize.X > Systems["Tab"][2].AbsoluteSize.X then
+										AutoAnimText(Clone.TextLabel, Systems["Tab"][2])
 									end
 								else
 									if game:GetService("Players").LocalPlayer.Name ~= v.Name then
-										local Clone = LabelSimply:CreateTabSystem()[3]:Clone()
+										local Clone = Systems["Tab"][3]:Clone()
 										Clone.TextLabel.Text = v.DisplayName .."(@".. v.Name ..")"
 										Clone.Text = v.Name
-										Clone.Parent = LabelSimply:CreateTabSystem()[2]
+										Clone.Parent = Systems["Tab"][2]
 										local conn
 										conn = Clone.Activated:Connect(function()
 											UI_GUI_Tab["TextButton"].Text = Clone.TextLabel.Text
 											UI_GUI_Tab["StringValue"].Value = v.Name
-											LabelSimply:CreateTabSystem()[1].Visible = false
+											UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
+											Systems["Tab"][1].Visible = false
 											conn:Disconnect()
 										end)
-										if Clone.TextLabel.AbsoluteSize.X > LabelSimply:CreateTabSystem()[2].AbsoluteSize.X then
-											AutoAnimText(Clone.TextLabel, LabelSimply:CreateTabSystem()[2])
+										if Clone.TextLabel.AbsoluteSize.X > Systems["Tab"][2].AbsoluteSize.X then
+											AutoAnimText(Clone.TextLabel, Systems["Tab"][2])
 										end
 									end
 								end
 							end
 						end
 					end
-					UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
 				end)
 			end
 
-			function LabelSimplyThree:Key(Object, Text, TextKey, CallBack)
+			function LabelSimplyThree:Key(Text, TextKey, CallBack)
 				local UI_GUI_Key = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextButton = UI_Table["TextButton"]:Clone(),
@@ -1298,7 +1309,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					CallBack = CallBack or function() end
 				}
 
-				UI_GUI_Key["Frame"].Parent = Object
+				UI_GUI_Key["Frame"].Parent = UI_GUI_Box["Frame"]
 				UI_GUI_Key["Frame"].Size = UDim2.new(1, 0, 0, 40)
 				UI_GUI_Key["Frame"].BorderSizePixel = 1
 				UI_GUI_Key["Frame"].LayoutOrder = 1
@@ -1344,11 +1355,13 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 							if input.UserInputType == Enum.UserInputType.Keyboard then
 								UI_GUI_Key["TextButton"].Text = input.KeyCode.Name
 								UI_GUI_Key["StringValue"].Value = input.KeyCode.Name
+								game:GetService("UserInputService").InputBegan:Wait()
 								UI_GUI_Key["Bool"] = false
 								conn:Disconnect()
 							elseif input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.MouseButton2 or input.UserInputType == Enum.UserInputType.MouseButton3 then
 								UI_GUI_Key["TextButton"].Text = input.KeyCode.Name
 								UI_GUI_Key["StringValue"].Value = input.KeyCode.Name
+								game:GetService("UserInputService").InputBegan:Wait()
 								UI_GUI_Key["Bool"] = false
 								conn:Disconnect()
 							end
@@ -1357,14 +1370,16 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				end)
 				game:GetService("UserInputService").InputBegan:connect(function(a, gp) 
 					if not gp then 
-						if a.KeyCode.Name == UI_GUI_Key["TextButton"].Text then 
-							UI_GUI_Key["CallBack"]()
+						if not UI_GUI_Key["Bool"] then
+							if a.KeyCode.Name == UI_GUI_Key["TextButton"].Text then 
+								UI_GUI_Key["CallBack"](a.KeyCode.Name)
+							end
 						end
 					end
 				end)
 			end
 
-			function LabelSimplyThree:Info(Object, Text)
+			function LabelSimplyThree:Info(Text)
 				local UI_GUI_Info = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextLabel = UI_Table["TextLabel"]:Clone(),
@@ -1391,7 +1406,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 			end
 			return LabelSimplyThree
 		end
-		
+
 		local UI_GUI_Menu = {
 			TextButton = UI_Table["TextButton"]:Clone(),
 			UIListLayout = UI_Table["UIListLayout"]:Clone(),
@@ -1425,11 +1440,10 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 		UI_GUI_Menu["TextLabel"].LayoutOrder = 2
 		UI_GUI_Menu["TextLabel"].BackgroundTransparency = 1
 
-		if MainBool == true then
+		if UI_Table["Bool"] == true then
 			UI_GUI_Menu["TextButton"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 			UI_GUI_Menu["ImageLabel"].ImageColor3 = Color3.fromRGB(255, 255, 255)
 			UI_GUI_Menu["TextLabel"].TextColor3 = Color3.fromRGB(255, 255, 255)
-
 		end
 
 		if UI_GUI_MenuBox["ScrollingFrameBox"] ~= nil then
@@ -1449,7 +1463,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 						end
 					end
 				end
-				for i, v in pairs(UI_GUI_MenuBox["ScrollingFrameBox"]:GetChildren()) do
+				for i, v in pairs(UI_GUI_MenuBox["ScrollingFrameBox"].Parent:GetChildren()) do
 					if v:IsA("ScrollingFrame") then
 						if v ~= UI_GUI_MenuBox["ScrollingFrameBox"] then
 							if v.Visible ~= false then
@@ -1459,15 +1473,17 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					end
 				end
 			end)
-			if MainBool == true then
+			if UI_Table["Bool"] == true then
 				UI_GUI_MenuBox["ScrollingFrameBox"].Visible = true
 			else
 				UI_GUI_MenuBox["ScrollingFrameBox"].Visible = false
 			end
 		end
+		UI_Table["Bool"] = false
 		return LabelSimplyTwo
 	end
 
 	return LabelSimply
 end
+
 return SimplyUI
