@@ -831,7 +831,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 
 	local LabelSimply = {UI_GUI_Bulider["MainFrame"], UI_GUI_Bulider["UIShadow"]}
 
-	function LabelSimply:Menu(Image, Text)
+	function LabelSimply:Tab(Image, Text)
 
 		local UI_GUI_MenuBox = {
 			ScrollingFrameBox = UI_Table["ScrollingFrame"]:Clone(),
@@ -879,7 +879,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 			local LabelSimplyThree = {}
 
 
-			function LabelSimplyThree:Switch(Text, Bool, CallBack)
+			function LabelSimplyThree:Toggle(Text, Bool, CallBack)
 
 				local UI_GUI_Switch = {
 					Frame = UI_Table["Frame"]:Clone(),
@@ -989,7 +989,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					pcall(UI_GUI_Button["CallBack"])
 				end)
 			end
-			function LabelSimplyThree:TextBox(Text, PlaceHolderText, TextBox, ModeText, Range, NullText, CallBack)
+			function LabelSimplyThree:Input(Text, PlaceHolderText, TextBox, ModeText, Range, NullText, CallBack)
 				local UI_GUI_TextBox = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextBox = UI_Table["TextBox"]:Clone(),
@@ -1061,7 +1061,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					UI_GUI_TextBox["CallBack"](UI_GUI_TextBox["TextBox"].Text)
 				end)
 			end
-			function LabelSimplyThree:Color(Text, StandartColor, CallBack)
+			function LabelSimplyThree:PickerColor(Text, StandartColor, CallBack)
 				local UI_GUI_Color = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextButton = UI_Table["TextButton"]:Clone(),
@@ -1124,7 +1124,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					end
 				end)
 			end
-			function LabelSimplyThree:Tab(Text, ItemText, SettingsTab, TabItems, ColorTab, CallBack)
+			function LabelSimplyThree:DropDown(Text, ItemText, SettingsTab, TabItems, ColorTab, CallBack)
 				local UI_GUI_Tab = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextButton = UI_Table["TextButton"]:Clone(),
@@ -1242,7 +1242,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 								conn = Clone.Activated:Connect(function()
 									UI_GUI_Tab["TextButton"].Text = Clone.TextLabel.Text
 									UI_GUI_Tab["StringValue"].Value = v
-									UI_GUI_Tab["CallBack"](UI_GUI_Tab["StringValue"].Value)
+									UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
 									Systems["Tab"][1].Visible = false
 									conn:Disconnect()
 								end)
@@ -1282,7 +1282,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 										conn = Clone.Activated:Connect(function()
 											UI_GUI_Tab["TextButton"].Text = Clone.TextLabel.Text
 											UI_GUI_Tab["StringValue"].Value = v.Name
-											UI_GUI_Tab["CallBack"](UI_GUI_Tab["StringValue"].Value)
+											UI_GUI_Tab["CallBack"](UI_GUI_Tab["TextButton"].Text)
 											Systems["Tab"][1].Visible = false
 											conn:Disconnect()
 										end)
@@ -1297,7 +1297,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 				end)
 			end
 
-			function LabelSimplyThree:Key(Text, TextKey, CallBack)
+			function LabelSimplyThree:Keybind(Text, TextKey, CallBack)
 				local UI_GUI_Key = {
 					Frame = UI_Table["Frame"]:Clone(),
 					TextButton = UI_Table["TextButton"]:Clone(),
@@ -1378,7 +1378,129 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 					end
 				end)
 			end
+			
+			function LabelSimplyThree:Slider(Text, MainNumber, Range, Type, CallBack)
+				local UI_GUI_Slider = {
+					Frame = UI_Table["Frame"]:Clone(),
+					TextLabel = UI_Table["TextLabel"]:Clone(),
+					UIPadding = UI_Table["UIPadding"]:Clone(),
+					
+					AllFrame = UI_Table["Frame"]:Clone(),
+					
+					UILayout = UI_Table["UIListLayout"]:Clone(),
+					
+					TextCounter = UI_Table["TextLabel"]:Clone(),
+					
+					FrameOne = UI_Table["Frame"]:Clone(),
+					FrameClone = UI_Table["Frame"]:Clone(),
+					FrameTwo = UI_Table["Frame"]:Clone(),
+					FrameDragOne = UI_Table["Frame"]:Clone(),
+					UIDragOne = UI_Table["UIDragger"]:Clone(),
+					
+					CallBack = CallBack or function() end
+				}
 
+				UI_GUI_Slider["Frame"].Parent = UI_GUI_Box["Frame"]
+				UI_GUI_Slider["Frame"].Size = UDim2.new(1, 0, 0, 40)
+				UI_GUI_Slider["Frame"].BorderSizePixel = 1
+				UI_GUI_Slider["Frame"].LayoutOrder = 1
+
+				UI_GUI_Slider["TextLabel"].Parent = UI_GUI_Slider["Frame"]
+				UI_GUI_Slider["TextLabel"].LayoutOrder = 0
+				UI_GUI_Slider["TextLabel"].Text = Text
+				UI_GUI_Slider["TextLabel"].TextSize = 12
+				UI_GUI_Slider["TextLabel"].Size = UDim2.new(1, 0, 1, 0)
+				UI_GUI_Slider["TextLabel"].TextXAlignment = Enum.TextXAlignment.Left
+				UI_GUI_Slider["TextLabel"].AnchorPoint = Vector2.new(0, 0.5)
+				UI_GUI_Slider["TextLabel"].Position = UDim2.new(0, 0, 0.5, 0)
+				
+				UI_GUI_Slider["UIPadding"].Parent = UI_GUI_Slider["Frame"]
+				UI_GUI_Slider["UIPadding"].PaddingLeft = UDim.new(0, 10)
+				UI_GUI_Slider["UIPadding"].PaddingRight = UDim.new(0, 10)
+				
+				UI_GUI_Slider["AllFrame"].Parent = UI_GUI_Slider["Frame"]
+				UI_GUI_Slider["AllFrame"].Size = UDim2.new(0, 0, 1, 0)
+				UI_GUI_Slider["AllFrame"].AutomaticSize = Enum.AutomaticSize.X
+				UI_GUI_Slider["AllFrame"].AnchorPoint = Vector2.new(1, 0)
+				UI_GUI_Slider["AllFrame"].Position = UDim2.new(1, 0, 0, 0)
+
+				UI_GUI_Slider["UILayout"].Parent = UI_GUI_Slider["AllFrame"]
+				UI_GUI_Slider["UILayout"].Padding = UDim.new(0, 10)
+				UI_GUI_Slider["UILayout"].FillDirection = Enum.FillDirection.Horizontal
+				UI_GUI_Slider["UILayout"].SortOrder = Enum.SortOrder.LayoutOrder
+				UI_GUI_Slider["UILayout"].VerticalAlignment = Enum.VerticalAlignment.Center
+				UI_GUI_Slider["UILayout"].HorizontalAlignment = Enum.HorizontalAlignment.Right
+				
+				UI_GUI_Slider["FrameOne"].Parent = UI_GUI_Slider["AllFrame"]
+				UI_GUI_Slider["FrameOne"].LayoutOrder = 1
+				UI_GUI_Slider["FrameOne"].BackgroundTransparency = 1
+				UI_GUI_Slider["FrameOne"].Size = UDim2.new(0, 100, 1, -20)
+				UI_GUI_Slider["FrameOne"].AnchorPoint = Vector2.new(1, 0.5)
+				UI_GUI_Slider["FrameOne"].Position = UDim2.new(1, 0, 0.5, 0)
+				
+				UI_GUI_Slider["FrameClone"].Parent = UI_GUI_Slider["FrameOne"]
+				UI_GUI_Slider["FrameClone"].Size = UDim2.new(1, -10, 0.5, 0)
+				UI_GUI_Slider["FrameClone"].AnchorPoint = Vector2.new(0.5, 0.5)
+				UI_GUI_Slider["FrameClone"].Position = UDim2.new(0.5, 0, 0.5, 0)
+				UI_GUI_Slider["FrameClone"].BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+				UI_GUI_Slider["FrameClone"].BorderSizePixel = 1
+				
+				UI_GUI_Slider["FrameTwo"].Parent = UI_GUI_Slider["FrameClone"]
+				UI_GUI_Slider["FrameTwo"].Size = UDim2.new(0, 0, 1, 0)
+				UI_GUI_Slider["FrameTwo"].BackgroundColor3 = Color3.fromRGB(0, 174, 255)
+				
+				UI_GUI_Slider["FrameDragOne"].Parent = UI_GUI_Slider["FrameClone"]
+				UI_GUI_Slider["FrameDragOne"].Size = UDim2.new(1, 0, 2, 0)
+				UI_GUI_Slider["FrameDragOne"].AnchorPoint = Vector2.new(0.5, 0.5)
+				UI_GUI_Slider["FrameDragOne"].Position = UDim2.new(0, 0, 0.5, 0)
+				UI_GUI_Slider["FrameDragOne"].SizeConstraint = Enum.SizeConstraint.RelativeYY
+				UI_GUI_Slider["FrameDragOne"].BackgroundColor3 = Color3.fromRGB(12, 68, 158)
+				UI_GUI_Slider["FrameDragOne"].BorderSizePixel = 1
+
+				UI_GUI_Slider["UIDragOne"].Parent = UI_GUI_Slider["FrameDragOne"]
+				UI_GUI_Slider["UIDragOne"].BoundingUI = UI_GUI_Slider["FrameOne"]
+				UI_GUI_Slider["UIDragOne"].DragStyle = Enum.UIDragDetectorDragStyle.TranslateLine
+				UI_GUI_Slider["UIDragOne"].ResponseStyle = Enum.UIDragDetectorResponseStyle.Scale
+				UI_GUI_Slider["UIDragOne"].BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.EntireObject
+				
+				UI_GUI_Slider["TextCounter"].Parent = UI_GUI_Slider["AllFrame"]
+				UI_GUI_Slider["TextCounter"].LayoutOrder = 0
+				UI_GUI_Slider["TextCounter"].Text = MainNumber
+				UI_GUI_Slider["TextCounter"].TextSize = 12
+				UI_GUI_Slider["TextCounter"].Size = UDim2.new(0, 0, 1, 0)
+				UI_GUI_Slider["TextCounter"].AutomaticSize = Enum.AutomaticSize.X
+				UI_GUI_Slider["TextCounter"].TextXAlignment = Enum.TextXAlignment.Left
+				
+				if MainNumber then
+					local A = ((((MainNumber - Range[1]) * 100) / (Range[2] - Range[1]))/100)
+					UI_GUI_Slider["FrameDragOne"].Position = UDim2.new(string.format("%.3f", A), 0, 0.5, 0)
+					UI_GUI_Slider["FrameTwo"].Size = UDim2.new(UI_GUI_Slider["FrameDragOne"].Position.X.Scale, 0, 1, 0)
+				end
+				
+				if MainNumber >= Range[2] then
+					UI_GUI_Slider["FrameDragOne"].Position = UDim2.new(1, 0, 0.5, 0)
+					UI_GUI_Slider["FrameTwo"].Size = UDim2.new(UI_GUI_Slider["FrameDragOne"].Position.X.Scale, 0, 1, 0)
+				elseif MainNumber <= Range[1] then
+					UI_GUI_Slider["FrameDragOne"].Position = UDim2.new(0, 0, 0.5, 0)
+					UI_GUI_Slider["FrameTwo"].Size = UDim2.new(UI_GUI_Slider["FrameDragOne"].Position.X.Scale, 0, 1, 0)
+				end
+				
+				local function Update()
+					if Type[1] == "int" then
+						UI_GUI_Slider["FrameTwo"].Size = UDim2.new(UI_GUI_Slider["FrameDragOne"].Position.X.Scale, 0, 1, 0)
+						local A = math.floor((((Range[2] - Range[1]) * math.floor(UI_GUI_Slider["FrameDragOne"].Position.X.Scale * 100)) / 100)) + Range[1]
+						UI_GUI_Slider["TextCounter"].Text = A
+						UI_GUI_Slider["CallBack"](A)
+					elseif Type[1] == "float" then
+						UI_GUI_Slider["FrameTwo"].Size = UDim2.new(UI_GUI_Slider["FrameDragOne"].Position.X.Scale, 0, 1, 0)
+						local A = string.format("%.".. Type[2] .."f", (((Range[2] - Range[1]) * UI_GUI_Slider["FrameDragOne"].Position.X.Scale) + Range[1]))
+						UI_GUI_Slider["TextCounter"].Text = A
+						UI_GUI_Slider["CallBack"](A)
+					end
+				end
+				UI_GUI_Slider["UIDragOne"].Changed:Connect(Update)
+			end
+			
 			function LabelSimplyThree:Info(Text)
 				local UI_GUI_Info = {
 					Frame = UI_Table["Frame"]:Clone(),
