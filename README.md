@@ -1,7 +1,8 @@
 # SimplyUI
 SimplyUI is a simple open‑source script for Roblox.
 <p align="center">
-  <img src="https://raw.githubusercontent.com/r58uoi/SimplyUI-Script/refs/heads/main/Asset/LogoSimply.svg" width="560" height="150" alt="SimplyUI logo">
+  	<img src="https://raw.githubusercontent.com/r58uoi/SimplyUI-Script/refs/heads/main/Assets/LogoSimply.svg" width="560" height="150" alt="SimplyUI logo">
+	<img src="https://raw.githubusercontent.com/r58uoi/SimplyUI-Script/refs/heads/main/Assets/ImageSimplyUI.png" width="525" height="326" alt="SimplyUI Image">
 </p>
 
 #
