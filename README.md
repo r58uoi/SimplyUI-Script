@@ -154,7 +154,7 @@ Box[1]:Info("Info")
 ```lua
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/r58uoi/SimplyUI-Script/refs/heads/main/SimpleUI.lua"))()
 
-local Window = SimplyUI:CreateUI(
+local Window = Library:CreateUI(
 	game.CoreGui,
 	{true, true},
 	UDim2.new(0, 500, 0, 300),
