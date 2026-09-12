@@ -1,5 +1,8 @@
 # SimplyUI
 SimplyUI is a simple open‑source script for Roblox.
+Here is the list of all the games.
+<a href="https://github.com/r58uoi/SimplyUI-Script/blob/main/LISTGAME.md">Click on the link.</a>
+
 <p align="center">
   	<img src="https://raw.githubusercontent.com/r58uoi/SimplyUI-Script/refs/heads/main/Assets/LogoSimply.svg" width="560" height="150" alt="SimplyUI logo">
 	<img src="https://raw.githubusercontent.com/r58uoi/SimplyUI-Script/refs/heads/main/Assets/ImageSimplyUI.png" width="525" height="326" alt="SimplyUI Image">
