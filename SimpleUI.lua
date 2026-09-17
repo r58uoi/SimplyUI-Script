@@ -1215,8 +1215,8 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 						--UITabs[1].Position = UDim2.new()
 						--UITabs[1].Size = UDim2.new()
 						--UITabs[1].AnchorPoint = Vector2.new(0, 0.5)
-						Systems["Tab"][1].Size = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsoluteSize.X, 0, 0)
-						Systems["Tab"][1].Position = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsolutePosition.X, 0, UI_GUI_Tab["TextButton"].AbsolutePosition.Y + UI_GUI_Tab["TextButton"].AbsoluteSize.Y)
+						--Systems["Tab"][1].Size = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsoluteSize.X, 0, 0)
+						--Systems["Tab"][1].Position = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsolutePosition.X, 0, UI_GUI_Tab["TextButton"].AbsolutePosition.Y + UI_GUI_Tab["TextButton"].AbsoluteSize.Y)
 					end
 					if Systems["Tab"][1].Visible == true then
 						Systems["Tab"][1].Visible = false
