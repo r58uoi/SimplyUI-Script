@@ -155,7 +155,7 @@ function SimplyUI:CreateColorSystem(Object)
 
 		UI_GUI_ColorSystem["ColorFrame"].Parent = Object
 		UI_GUI_ColorSystem["ColorFrame"].Name = "Color"
-		UI_GUI_ColorSystem["ColorFrame"].Size = UDim2.new(0, 120, 0, 180)
+		UI_GUI_ColorSystem["ColorFrame"].Size = UDim2.new(0, 120, 0, 240)
 		UI_GUI_ColorSystem["ColorFrame"].Position = UDim2.new(0.5, 0, 0.5, 0)
 		UI_GUI_ColorSystem["ColorFrame"].AnchorPoint = Vector2.new(0.5, 0.5)
 		UI_GUI_ColorSystem["ColorFrame"].BorderSizePixel = 1
