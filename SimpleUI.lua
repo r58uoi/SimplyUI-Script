@@ -566,11 +566,6 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 	UI_GUI_Bulider["MainGui"].Parent = GameGuiPath --game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 	UI_GUI_Bulider["MainGui"].Name = "SimplyUI"
 	
-	local Systems = {
-		Color = SimplyUI:CreateColorSystem(UI_GUI_Bulider["MainGui"]),
-		Tab = SimplyUI:CreateTabSystem(UI_GUI_Bulider["MainGui"])
-	}
-	
 	UI_GUI_Bulider["ButtonSimply"].Parent = UI_GUI_Bulider["MainGui"]
 	UI_GUI_Bulider["ButtonSimply"].BorderSizePixel = 1
 	UI_GUI_Bulider["ButtonSimply"].Size = UDim2.new(0, 50, 0, 50)
@@ -584,6 +579,11 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 	UI_GUI_Bulider["MainFrame"].Position = PosGui
 	UI_GUI_Bulider["MainFrame"].Size = SizeGui
 	UI_GUI_Bulider["MainFrame"].BorderSizePixel = 1
+
+	local Systems = {
+		Color = SimplyUI:CreateColorSystem(UI_GUI_Bulider["MainFrame"]),
+		Tab = SimplyUI:CreateTabSystem(UI_GUI_Bulider["MainFrame"])
+	}
 
 	UI_GUI_Bulider["UIShadow"].Parent = UI_GUI_Bulider["MainFrame"]
 
@@ -1215,7 +1215,7 @@ function SimplyUI:CreateUI(GameGuiPath, SettingsGui, SizeGui, PosGui, MinSizeGui
 						--UITabs[1].Position = UDim2.new()
 						--UITabs[1].Size = UDim2.new()
 						--UITabs[1].AnchorPoint = Vector2.new(0, 0.5)
-						--Systems["Tab"][1].Size = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsoluteSize.X, 0, 0)
+						Systems["Tab"][1].Size = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsoluteSize.X, 0, 0)
 						--Systems["Tab"][1].Position = UDim2.new(0, UI_GUI_Tab["TextButton"].AbsolutePosition.X, 0, UI_GUI_Tab["TextButton"].AbsolutePosition.Y + UI_GUI_Tab["TextButton"].AbsoluteSize.Y)
 					end
 					if Systems["Tab"][1].Visible == true then
