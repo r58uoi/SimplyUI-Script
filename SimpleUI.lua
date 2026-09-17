@@ -454,6 +454,8 @@ function SimplyUI:CreateTabSystem(Object)
 	}
 	UI_GUI_TabSystem["TabFrame"].Parent = Object
 	UI_GUI_TabSystem["TabFrame"].Name = "Tab"
+	UI_GUI_TabSystem["TabFrame"].Position = UDim2.new(0.5, 0, 0.5, 0)
+	UI_GUI_TabSystem["TabFrame"].AnchorPoint = Vector2.new(0.5, 0.5)
 	UI_GUI_TabSystem["TabFrame"].BackgroundColor3 = Color3.fromRGB(255, 179, 0)
 	UI_GUI_TabSystem["TabFrame"].AutomaticSize =  Enum.AutomaticSize.Y
 	UI_GUI_TabSystem["TabFrame"].BorderSizePixel = 1
